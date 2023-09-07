@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fishing Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Online Fishing Store</h1>
+    <form action="/checkout" method="post">
+        <h2>Select Products:</h2>
+        {% for product in products %}
+            <div>
+                <input type="checkbox" id="{{ product.id }}" name="product" value="{{ product.id }}">
+                <label for="{{ product.id }}">{{ product.name }} - ${{ product.price }}</label>
+            </div>
+        {% endfor %}
+        <input type="submit" value="Checkout">
+    </form>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

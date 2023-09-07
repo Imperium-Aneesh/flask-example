@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Checkout</h1>
+    <form action="/confirmation" method="post">
+        <h2>Selected Products:</h2>
+        {% for product in products %}
+            <div>
+                <input type="checkbox" id="{{ product.id }}" name="product" value="{{ product.id }}" checked disabled>
+                <label for="{{ product.id }}">{{ product.name }} - ${{ product.price }}</label>
+            </div>
+        {% endfor %}
+        <h2>Total Price: ${{ total }}</h2>
+        <input type="submit" value="Confirm Order">
+    </form>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
+</h2>

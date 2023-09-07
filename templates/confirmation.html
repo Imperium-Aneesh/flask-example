@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Order Confirmation</h1>
+    <p>Thank you for your purchase! Your order has been confirmed.</p>
+    <h2>Order Details:</h2>
+    {% for product in products %}
+        <div>
+            <p>{{ product.name }} - ${{ product.price }}</p>
+        </div>
+    {% endfor %}
+    <h2>Total Price: ${{ total }}</h2>
+    <a href="/">Back to Home</a>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
